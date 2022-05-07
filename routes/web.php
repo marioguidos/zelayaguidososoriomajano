@@ -25,10 +25,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::post('/executi/{id}', [ExecutiveController::class, 'update'])->name('executives.update');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/executives', [ExecutiveController::class, 'index'])->name('executives.index');
-Route::get('/executives/{executive}/edit', [ExecutiveController::class, 'edit'])->name('executives.edit');
-Route::get('/executives/create', [ExecutiveController::class, 'create'])->name('executives.create');
-Route::post('/executives', [ExecutiveController::class, 'store'])->name('executives.store');
-Route::get('/executives/{executive}/show', [ExecutiveController::class, 'show'])->name('executives.show');
+Route::post('/executi/{id}', [ExecutiveController::class, 'update'])->name('executives.update')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/executives', [ExecutiveController::class, 'index'])->name('executives.index')->middleware('auth');
+Route::get('/executives/{executive}/edit', [ExecutiveController::class, 'edit'])->name('executives.edit')->middleware('auth');
+Route::get('/executives/create', [ExecutiveController::class, 'create'])->name('executives.create')->middleware('auth');
+Route::post('/executives', [ExecutiveController::class, 'store'])->name('executives.store')->middleware('auth');
+Route::get('/executives/{executive}/show', [ExecutiveController::class, 'show'])->name('executives.show')->middleware('auth');
