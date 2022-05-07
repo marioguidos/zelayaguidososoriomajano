@@ -43,7 +43,7 @@ class LoginController extends Controller
 {
     if (Auth::attempt(['name' => $request->name, 'password' => $request->password,]))
     {
-        return view('executives');
+        return view('executives.index');
     }
     else
     {
