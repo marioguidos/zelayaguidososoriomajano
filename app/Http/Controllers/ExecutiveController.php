@@ -31,7 +31,7 @@ class ExecutiveController extends Controller
      */
     public function create()
     {
-        //
+        return view('executives.create');
     }
 
     /**

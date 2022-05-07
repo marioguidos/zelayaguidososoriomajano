@@ -19,7 +19,7 @@ class ExecutiveFactory extends Factory
         return [
             'dui' => $this->faker->numerify("##########"),
             'category' => $this->faker->text($maxNbChars = 5),
-            'user_id' => $this->faker->numberBetween(1, 5),
+            'user_id' => $this->faker->numberBetween(2, 5),
         ];
     }
 }
