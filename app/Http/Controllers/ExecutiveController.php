@@ -19,10 +19,8 @@ class ExecutiveController extends Controller
      */
     public function index()
     {
-        $executives = auth()->user()->executives;
         $clients = Client::all();
         return view('executives.index', compact('clients'));
-        
     }
 
     /**
@@ -43,14 +41,17 @@ class ExecutiveController extends Controller
      */
     public function store(Request $request)
     {
+
+        $executive = Executive::Where('user_id', auth()->user()->id)->first();
+
         $client = new Client();
         $client->name = $request->name;
         $client->amount = $request->amount;
         $client->age = $request->age;
         $client->direction = $request->address;
         $client->phoneNumber = $request->phone;
-        //$client->executive_id = Executive::where('user_id',;
-        
+        $client->executive_id = $executive->id;
+
         if ($client->save()) {
             return redirect()->action([ExecutiveController::class, 'index']);
         }
