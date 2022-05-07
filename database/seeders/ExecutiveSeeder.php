@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Executive;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class ExecutiveSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Executive::factory(4)->create();
     }
 }
