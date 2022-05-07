@@ -36,9 +36,9 @@
                         <td>
                             <a href="{{route('executives.destroy',$cl)}}"
                                 class="btn btn-danger">Eliminar</a>
-                            <a href="#"
+                            <a href="{{ url('/executives/' . $cl->id . '/edit') }}"
                                 class="btn btn-warning">Editar</a>
-                            <a href="{{ url('/cl/' . $cl->id) }}"
+                            <a href="{{ url('/executives/' . $cl->id) . '/show' }}"
                                 class="btn btn-success">Mostrar</a>
                         </td>
                     </tr>

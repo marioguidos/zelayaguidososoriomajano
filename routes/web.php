@@ -25,9 +25,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/executives',[ExecutiveController::class,'index'])->name('executives.index');
 Route::get('/executives/create',[ExecutiveController::class,'create'])->name('executives.create');
 Route::post('/executives',[ExecutiveController::class,'store'])->name('executives.store');
 Route::delete('/executives/{executive}',[ExecutiveController::class,'destroy'])->name('executives.destroy');
 
+=======
+Route::post('/executi/{id}', [ExecutiveController::class, 'update'])->name('executives.update')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/executives', [ExecutiveController::class, 'index'])->name('executives.index')->middleware('auth');
+Route::get('/executives/{executive}/edit', [ExecutiveController::class, 'edit'])->name('executives.edit')->middleware('auth');
+Route::get('/executives/create', [ExecutiveController::class, 'create'])->name('executives.create')->middleware('auth');
+Route::post('/executives', [ExecutiveController::class, 'store'])->name('executives.store')->middleware('auth');
+Route::get('/executives/{executive}/show', [ExecutiveController::class, 'show'])->name('executives.show')->middleware('auth');
+>>>>>>> 590aabdee09a313747c5b6d2f872ec518345c226
