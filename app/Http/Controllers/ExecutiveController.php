@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Executive;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class ExecutiveController extends Controller
     public function index()
     {
         $executives=auth()->user()->executives;
-        return view('executives.index')->with('executives',$executives);
+        $clients= Client::all();
+        return view('executives.index',compact('clients'));
     }
 
     /**
