@@ -29,5 +29,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/executives',[ExecutiveController::class,'index'])->name('executives.index');
 Route::get('/executives/create',[ExecutiveController::class,'create'])->name('executives.create');
 Route::post('/executives',[ExecutiveController::class,'store'])->name('executives.store');
-
+Route::delete('/executives/{executive}',[ExecutiveController::class,'destroy'])->name('executives.destroy');
 
