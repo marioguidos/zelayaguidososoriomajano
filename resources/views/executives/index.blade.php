@@ -5,7 +5,7 @@
 
 @section('buttons')
     <a class="btn btn-primary mr-2"
-        href="{{ route('executives.create') }}">Crear ejecutivo</a>
+        href="{{ route('executives.create') }}">Crear Cliente</a>
 @endsection
 
 @section('content')
