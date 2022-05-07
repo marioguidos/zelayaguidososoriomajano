@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->user()) {
+        return redirect()->action([ExecutiveController::class, 'index']);
+    } else {
+        return view('auth.login');
+    }
 });
 
 Auth::routes();
