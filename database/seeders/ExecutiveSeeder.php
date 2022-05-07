@@ -15,6 +15,11 @@ class ExecutiveSeeder extends Seeder
      */
     public function run()
     {
+        Executive::insert([
+            'dui' => '05520201',
+            'category' => 'Parcial',
+            'user_id' => 1,
+        ]);
         Executive::factory(4)->create();
     }
 }
