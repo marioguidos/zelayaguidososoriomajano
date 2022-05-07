@@ -26,8 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/executives',[ExecutiveController::class,'index'])->name('executives.index');
-Route::get('/executives/create',[ExecutiveController::class,'create'])->name('executives.create');
-Route::post('/executives',[ExecutiveController::class,'store'])->name('executives.store');
-
-
+Route::get('/executives', [ExecutiveController::class, 'index'])->name('executives.index');
+Route::get('/executives/create', [ExecutiveController::class, 'create'])->name('executives.create');
+Route::post('/executives', [ExecutiveController::class, 'store'])->name('executives.store');
+Route::get('/executives/{executive}', [ExecutiveController::class, 'show'])->name('executives.show');

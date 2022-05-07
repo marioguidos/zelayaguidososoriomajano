@@ -38,7 +38,7 @@
                                 class="btn btn-danger">Eliminar</a>
                             <a href="#"
                                 class="btn btn-warning">Editar</a>
-                            <a href="{{ url('/cl/' . $cl->id) }}"
+                            <a href="{{ url('/executives/' . $cl->id) }}"
                                 class="btn btn-success">Mostrar</a>
                         </td>
                     </tr>

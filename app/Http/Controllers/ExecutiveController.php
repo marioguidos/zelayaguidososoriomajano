@@ -41,6 +41,13 @@ class ExecutiveController extends Controller
      */
     public function store(Request $request)
     {
+        $data = request()->validate([
+            'name' => 'required|min:5|max:50',
+            'amount' => 'required',
+            'age' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+        ]);
 
         $executive = Executive::Where('user_id', auth()->user()->id)->first();
 
@@ -63,9 +70,11 @@ class ExecutiveController extends Controller
      * @param  \App\Models\Executive  $executive
      * @return \Illuminate\Http\Response
      */
-    public function show(Executive $executive)
+    public function show(Request $request)
     {
-        //
+        $client = Client::find($request->executive);
+        //dd($client);
+        return view('executives.show', compact('client'));
     }
 
     /**
@@ -76,7 +85,27 @@ class ExecutiveController extends Controller
      */
     public function edit(Executive $executive)
     {
-        //
+        $data = request()->validate([
+            'name' => 'required|min:5|max:50',
+            'amount' => 'required',
+            'age' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $executive = Executive::Where('user_id', auth()->user()->id)->first();
+
+        $client = new Client();
+        $client->name = $request->name;
+        $client->amount = $request->amount;
+        $client->age = $request->age;
+        $client->direction = $request->address;
+        $client->phoneNumber = $request->phone;
+        $client->executive_id = $executive->id;
+
+        if ($client->save()) {
+            return redirect()->action([ExecutiveController::class, 'index']);
+        }
     }
 
     /**
