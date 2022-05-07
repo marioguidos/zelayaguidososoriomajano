@@ -42,6 +42,7 @@ class User extends Authenticatable
     ];
     public function executives()
     {
-        return $this->hasMany(Executive::class);
+        return $this->belongsTo(User::class,'user_id');
+        
     }
 }
