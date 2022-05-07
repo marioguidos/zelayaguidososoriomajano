@@ -10,22 +10,22 @@
 
 @section('content')
     <div class="container">
-        <h2 class="text-center mb-5">Editar Cliente</h2>
+        <h2 class="text-center mb-5">Mostrar Cliente</h2>
         <div class="container">
             <div class="row mb-3">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <form action="{{ url('/executives') }}"
+                    <form  action="{{ url('/executives/' . $client->id) }}"
                         method="post"
                         enctype="multipart/form-data">
                         @csrf
-                        <input type="text"
+                        <input  disabled type="text"
                             hidden
                             name="id"
                             id="id"
                             value="{{ $client->id }}">
-                        <label for="name">Editar Cliente</label>
-                        <input type="text"
+                        <label for="name">Mostrar Cliente</label>
+                        <input  disabled type="text"
                             class="form-control @error('name') is-invalid @enderror"
                             name="name"
                             id="name"
@@ -37,7 +37,7 @@
                         @enderror
                         <label class="mt-3"
                             for="amount">Monto</label>
-                        <input type="number"
+                        <input  disabled type="number"
                             class="form-control @error('amount') is-invalid @enderror"
                             name="amount"
                             id="amount"
@@ -49,7 +49,7 @@
                         @enderror
                         <label class="mt-3"
                             for="age">Edad</label>
-                        <input type="number"
+                        <input  disabled type="number"
                             class="form-control @error('age') is-invalid @enderror"
                             name="age"
                             id="age"
@@ -61,7 +61,7 @@
                         @enderror
                         <label class="mt-3"
                             for="phone">Telefono</label>
-                        <input type="text"
+                        <input  disabled type="text"
                             class="form-control @error('phone') is-invalid @enderror"
                             name="phone"
                             id="phone"
@@ -73,19 +73,17 @@
                         @enderror
                         <label class="mt-3"
                             for="address">Telefono</label>
-                        <textarea class="form-control @error('phone') is-invalid @enderror"
+                        <textarea disabled  class="form-control @error('phone') is-invalid @enderror"
                             name="address"
                             id="address"
                             cols="8"
-                            rows="5">{{ $client->direction}}</textarea>
+                            rows="5">{{ $client->direction }}</textarea>
 
                         @error('address')
                             <span class="invalid-feedback d-block"
                                 role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
-                        <input type="submit"
-                            value="Guardar"
-                            class="btn btn-primary mt-3">
+                        
                     </form>
                 </div>
             </div>
