@@ -45,7 +45,7 @@ class LoginController extends Controller
     {
         return view('executives.index');
     }
-    else
+    else    
     {
         return $this->sendFailedLoginResponse($request, 'auth.failed_status');
     }
