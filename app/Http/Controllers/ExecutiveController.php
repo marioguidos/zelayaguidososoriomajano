@@ -19,7 +19,9 @@ class ExecutiveController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+
+        $executive = Executive::Where('user_id', auth()->user()->id)->first();
+        $clients = Client::Where('executive_id', $executive->id)->get();
         return view('executives.index', compact('clients'));
     }
 
