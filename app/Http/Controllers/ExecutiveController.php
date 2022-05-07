@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class ExecutiveController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,8 @@ class ExecutiveController extends Controller
      */
     public function index()
     {
-        //
+        $executives=auth()->user()->executives;
+        return view('executives.index')->with('executives',$executives);
     }
 
     /**
