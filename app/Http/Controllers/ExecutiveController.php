@@ -133,6 +133,6 @@ class ExecutiveController extends Controller
     public function destroy(Executive $executive)
     {
         $executive->delete();
-        return redirect()->action([ExecutiveController::class, 'index']);
+        
     }
 }

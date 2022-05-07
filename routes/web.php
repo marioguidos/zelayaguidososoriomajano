@@ -32,3 +32,6 @@ Route::get('/executives/{executive}/edit', [ExecutiveController::class, 'edit'])
 Route::get('/executives/create', [ExecutiveController::class, 'create'])->name('executives.create')->middleware('auth');
 Route::post('/executives', [ExecutiveController::class, 'store'])->name('executives.store')->middleware('auth');
 Route::get('/executives/{executive}/show', [ExecutiveController::class, 'show'])->name('executives.show')->middleware('auth');
+Route::delete('executives/{executive}',  [ExecutiveController::class, 'destroy'])->name('executives.destroy')->middleware('auth');
+    
+
