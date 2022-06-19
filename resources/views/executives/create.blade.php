@@ -19,6 +19,7 @@
                         method="post"
                         enctype="multipart/form-data">
                         @csrf
+                        @method('post')
                         <label for="name">Nuevo Cliente</label>
                         <input type="text"
                             class="form-control @error('name') is-invalid @enderror"

@@ -25,6 +25,8 @@
             </thead>
 
             <tbody>
+                @if ($clients)
+                    
                 @foreach ($clients as $cl)
                     <tr>
                         <td class="td">{{ $cl->id }}</td>
@@ -43,6 +45,7 @@
                         </td>
                     </tr>
                 @endforeach
+                @endif
             </tbody>
         </table>
     </div>

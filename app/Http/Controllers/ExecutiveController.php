@@ -19,9 +19,12 @@ class ExecutiveController extends Controller
      */
     public function index()
     {
-
+        $clients=[];
         $executive = Executive::Where('user_id', auth()->user()->id)->first();
-        $clients = Client::Where('executive_id', $executive->id)->get();
+        if ($executive) {
+
+            $clients = Client::Where('executive_id', $executive->id)->get();
+        }
         return view('executives.index', compact('clients'));
     }
 
@@ -133,6 +136,5 @@ class ExecutiveController extends Controller
     public function destroy(Executive $executive)
     {
         $executive->delete();
-        
     }
 }
